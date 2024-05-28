@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+    <link rel="stylesheet" href="quotegen.css">
+</head>
+<body>
+    <div class="quote-box">
+
+        <h2>Quote of the day</h2>
+        <blockquote id="quote">Loading...</blockquote> 
+        <span id="author">Loading...</span>
+        <div>
+            <button id="quoteButton">
+                New Quote
+            </button>
+            <button id="tweetButton"> <img src='C:\Users\navee\OneDrive\Pictures\images\twitter.jpg' alt="">
+                Tweet 
+            </button>
+        </div>
+
+    </div>
+</body>
+
+<script>
+    const quote = document.getElementById('quote');
+    const author = document.getElementById('author');
+    const api_url = 'https://api.quotable.io/random';
+
+
+    async function getquote(url){
+        const response = await fetch(url);
+        let data = await response.json();
+        console.log(data);
+
+        quote.innerHTML = data.content;
+        author.innerHTML = data.author;
+    }
+
+    // getquote(api_url);
+
+    document.getElementById('quoteButton').addEventListener('click',function(){
+        getquote(api_url);
+        console.log('dfg')
+    })
+
+    function tweet(){
+        window.open('https://twitter.com/intent/tweet?text=' + quote.innerHTML + '  --- by  ' + author.innerHTML ,'Tweet Window','width=600, height=300');
+    }
+
+    document.getElementById('tweetButton').addEventListener('click', function(){
+        tweet();
+
+        console.log('tweet button function');
+    })
+
+</script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRAG AND DROP</title>
+    <link rel="stylesheet" href="dragdrop.css">
+</head>
+<body>
+    <div class="container">
+
+        <div id="card1">
+
+            <div class="list" draggable="true"><img src="drag_drop_icon.png" alt="">List Item 1</div>
+            <div class="list" draggable="true"><img src="drag_drop_icon.png" alt="">List Item 2</div>
+             <div class="list" draggable="true"><img src="drag_drop_icon.png" alt="">List Item 3</div>
+             <div class="list" draggable="true"><img src="drag_drop_icon.png" alt="">List Item 4</div>
+        </div>
+
+        <div id="card2"></div>
+
+    </div>
+
+</body>
+<script>
+
+    let lists = document.getElementsByClassName('list');
+    let card2Box = document.getElementById('card2');
+    let card1Box = document.getElementById('card1');
+
+    for(list of lists){
+        list.addEventListener('dragstart', function(e){
+            
+            let selected = e.target;
+
+            card2Box.addEventListener('dragover', function(e){
+
+                e.preventDefault();
+            });
+
+            card2Box.addEventListener('drop', function (e){
+
+                card2Box.appendChild(selected);
+                selected = null;
+            });
+             card1Box.addEventListener('dragover', function(e){
+
+                e.preventDefault();
+            });
+
+            card1Box.addEventListener('drop', function (e){
+
+                card1Box.appendChild(selected);
+                selected = null;
+            });
+        });
+    }
+</script>
+</html>

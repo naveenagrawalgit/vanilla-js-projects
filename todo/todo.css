@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(#5a057e,#7e4205);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.cardcont{
+    width: 500px;
+    min-height: 30vh;
+    background: rgba(255, 255, 255, .8);
+    border-radius: 12px;
+    padding: 10px;
+    
+}
+
+.cardcont p {
+    font-family: poppins;
+    font-size: large;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    color: rgb(3, 3, 88);
+}
+
+.cardcont p img{
+    height: 25px;
+    padding-left: 20px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #edeef0;
+    border-radius: 30px;
+    padding-left: 25px;
+    margin-bottom: 20px;
+}
+
+#inputBox{
+    border-radius: 20px;
+    width: 90%;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    padding: 10px;
+    outline: none;
+}
+.cardcont button{
+    padding: 16px 50px;
+    border-radius: 10px;
+    border: none;
+    background: #ff5945;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+ul li {
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 8px 8px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+}
+
+ul li::before{
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url(unchecked.png);
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
+
+ul li.checked {
+    color: #555;
+    text-decoration: line-through;
+}
+ul li.checked::before{
+    background-image: url(checked.png);
+}
+ul li span{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+ul li span:hover{
+    background: #edeef0;
+}
